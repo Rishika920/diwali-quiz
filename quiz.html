@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Festive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff7e00, #ffb74d); /* Vibrant gradient */
+            color: #333;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        .question {
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 15px;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #e68900;
+        }
+        #result {
+            margin-top: 20px;
+            display: none;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Diwali Festive Quiz</h1>
+<form id="quizForm">
+    <div class="question">
+        <p>1. What does the festival of Diwali celebrate?</p>
+        <input type="radio" name="q1" value="b"> The victory of light over darkness<br>
+        <input type="radio" name="q1" value="a"> The arrival of spring<br>
+        <input type="radio" name="q1" value="c"> The harvest season<br>
+        <input type="radio" name="q1" value="d"> The beginning of the new year<br>
+    </div>
+
+    <div class="question">
+        <p>2. Which goddess is primarily worshipped during Diwali?</p>
+        <input type="radio" name="q2" value="c"> Lakshmi<br>
+        <input type="radio" name="q2" value="a"> Saraswati<br>
+        <input type="radio" name="q2" value="b"> Durga<br>
+        <input type="radio" name="q2" value="d"> Parvati<br>
+    </div>
+
+    <div class="question">
+        <p>3. What is the traditional sweet often prepared during Diwali?</p>
+        <input type="radio" name="q3" value="d"> All of the above<br>
+        <input type="radio" name="q3" value="a"> Kheer<br>
+        <input type="radio" name="q3" value="b"> Ladoo<br>
+        <input type="radio" name="q3" value="c"> Halwa<br>
+    </div>
+
+    <div class="question">
+        <p>4. What do people typically light during Diwali to symbolize the victory of light?</p>
+        <input type="radio" name="q4" value="b"> Diyas (oil lamps)<br>
+        <input type="radio" name="q4" value="a"> Candles<br>
+        <input type="radio" name="q4" value="c"> Sparklers<br>
+        <input type="radio" name="q4" value="d"> Lanterns<br>
+    </div>
+
+    <div class="question">
+        <p>5. Which color is considered auspicious and commonly used in Diwali decorations?</p>
+        <input type="radio" name="q5" value="c"> Red<br>
+        <input type="radio" name="q5" value="a"> Blue<br>
+        <input type="radio" name="q5" value="b"> Black<br>
+        <input type="radio" name="q5" value="d"> White<br>
+    </div>
+
+    <div class="question">
+        <p>6. What do families traditionally do to prepare for Diwali?</p>
+        <input type="radio" name="q6" value="d"> All of the above<br>
+        <input type="radio" name="q6" value="a"> Buy new clothes<br>
+        <input type="radio" name="q6" value="b"> Clean their homes<br>
+        <input type="radio" name="q6" value="c"> Visit friends and family<br>
+    </div>
+
+    <div class="question">
+        <p>7. What is the significance of rangoli during Diwali?</p>
+        <input type="radio" name="q7" value="b"> It's a decoration to welcome guests and deities<br>
+        <input type="radio" name="q7" value="a"> It's a type of food<br>
+        <input type="radio" name="q7" value="c"> It's a traditional dance<br>
+        <input type="radio" name="q7" value="d"> It's a type of clothing<br>
+    </div>
+
+    <div class="question">
+        <p>8. On which day of Diwali do people exchange gifts and sweets?</p>
+        <input type="radio" name="q8" value="c"> Diwali (Lakshmi Puja)<br>
+        <input type="radio" name="q8" value="a"> Dhanteras<br>
+        <input type="radio" name="q8" value="b"> Naraka Chaturdashi<br>
+        <input type="radio" name="q8" value="d"> Bhai Dooj<br>
+    </div>
+
+    <div class="question">
+        <p>9. What is the name of the firecracker that resembles a flower blooming?</p>
+        <input type="radio" name="q9" value="a"> Chakri<br>
+        <input type="radio" name="q9" value="b"> Anar<br>
+        <input type="radio" name="q9" value="c"> Phuljhari<br>
+        <input type="radio" name="q9" value="d"> Patakha<br>
+    </div>
+
+    <div class="question">
+        <p>10. In which Indian state is the famous festival of lights known as "Bandi Chhor Divas" celebrated?</p>
+        <input type="radio" name="q10" value="a"> Punjab<br>
+        <input type="radio" name="q10" value="b"> Gujarat<br>
+        <input type="radio" name="q10" value="c"> Maharashtra<br>
+        <input type="radio" name="q10" value="d"> Rajasthan<br>
+    </div>
+
+    <button type="button" onclick="calculateScore()">Submit</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+    function calculateScore() {
+        const answers = {
+            q1: 'b',
+            q2: 'c',
+            q3: 'd',
+            q4: 'b',
+            q5: 'c',
+            q6: 'd',
+            q7: 'b',
+            q8: 'c',
+            q9: 'a',
+            q10: 'a'
+        };
+        let score = 0;
+        const totalQuestions = Object.keys(answers).length;
+
+        for (let q in answers) {
+            const userAnswer = document.querySelector(`input[name="${q}"]:checked`);
+            if (userAnswer && userAnswer.value === answers[q]) {
+                score++;
+            }
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.style.display = 'block';
+        resultDiv.innerHTML = `Your score: ${score} out of ${totalQuestions}<br>` +
+                              (score === totalQuestions ? "Congratulations! You're a Diwali expert!" : "Thanks for participating! Keep learning about Diwali!");
+    }
+</script>
+
+</body>
+</html>
